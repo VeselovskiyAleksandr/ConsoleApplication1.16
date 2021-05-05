@@ -1,50 +1,33 @@
-﻿// ConsoleApplication1.16.1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//Урок 13. Задача 1. 
+﻿// ConsoleApplication1.16.2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//Урок 13. Задача 2.
 
 #include <iostream>
-#include <vector>
 #include <locale.h>
+#include <vector>
 using namespace std;
-vector<int>removal(vector<int>vect, int t) {
-vector<int>newvec(t);
-int i, count = 0;
-for (i = 0; i < vect.size(); i++) {
-	if (vect[i] != vect[vect.size() - 1]) {
-		newvec[i - count] = vect[i];
-	}
-	else if (i == (vect.size() - 1)) {
-		newvec[i - count] = vect[vect.size() - 1];
-	}
-	else {
-		count++;
-	}
-
-} t -= count;
-for (i = 0; i < t; i++) {
-	vect[i] = newvec[i];
-	cout << vect[i] << " ";
-}
-return vect;
-}
 
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	int n, i, additionalNumber;
-cout << "\n Укажите количество элементов в векторе ";
+	int i, n=1, m=1;
+	vector<float>vectPrices(n);
+	vector<int>vectPurchases(m);
+	cout << "\n Задайте количество ценников на продукты ";
 	cin >> n;
-	vector<int>vec(n);
-	
-	cout << "\n Введите элементы вектора ";
+	cout << "\n Задайте количество покупок ";
+	cin >> m;
+	cout <<" vectPrices = {";
 	for (i = 0; i < n; i++) {
-		cout << "\n vec[" << i << "]=";
-		cin >>vec[i];
+		
+		cout <<" vectPrices[i]=";
+cin >> vectPrices[i];
 	}
-	cout << "\n ВВедите дополнительное значение ";
-	cin >> additionalNumber;
-	vec.push_back(additionalNumber);	
-	vec = removal(vec, vec.size());
-
+//	 cout<<"}";
+//	 cout << "vectPurchases={";
+	 for (i = 0; i < m; i++) {
+		 cin >> vectPurchases[i];
+	}
+	//	 cout << "}";
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

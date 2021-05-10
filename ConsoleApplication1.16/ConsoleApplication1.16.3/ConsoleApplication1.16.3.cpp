@@ -1,5 +1,5 @@
-﻿// ConsoleApplication1.16.2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//Урок 13. Задача 2.
+﻿// ConsoleApplication1.16.3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//Урок 13. Задача 3.
 
 #include <iostream>
 #include <locale.h>
@@ -9,26 +9,46 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	int i;
-	float sum = 0;
-	bool correct = true;
-	vector<float>vectPrices;
-	vector<int>vectPurchases;
-
-	vectPrices = { 1.1, 2.2, 3.3 };
-	vectPurchases = { 1, 1, 0, 0 };
-	for (i = 0; i < vectPurchases.size(); i++) {
-	
-		 if (vectPurchases[i] > vectPrices.size() - 1) {
-			cout << "\n Укажите правильно индекс покупки ";
-			correct = false;
-			return correct;
-		}
-		else {
-			sum += vectPrices[vectPurchases[i]];
+	int i, realsize = 0, val=0;
+	vector<int>dataBase(21);
+    while (val != -2) {
+		cout << "\n Введите значения элементов базы данных \n";	
+		for (i = 0; i < 21; i++) {
+          cin >> val;
+		  if ((val != -1) && (val != -2)) {
+			  realsize++;
+			  if (realsize <= 20) {
+				  dataBase[i] = val;		 
+			  }
+			  else {
+				  vector<int>newvect(realsize);
+				  int j;
+				  for (j = realsize-20; j < realsize; j++) {		 
+					  newvect[j] = dataBase[j];			
+				  }
+				  for (j = 0; j<19 ; j++) {
+					  dataBase[j] = newvect[j+1];		
+				  } dataBase[19] = val;
+                realsize = 20;
+			  }
+		  }
+			else if (val ==-2) {
+				cout << "\n Программа завершает работу."; break;
+			}
+			else if (val == -1) {
+			  int j;
+			  if (realsize==0) {
+                 cout << "\n База данных пуста.";			 
+			  }
+			  else  {
+				  cout << "\n База данных содержит следующие элементы: ";
+				  for (j = 0; j < realsize; j++) {
+					  cout << dataBase[j] << " ";
+				  }
+				}	  
+		    }
 		}
 	}
-	cout <<"\n Сумма покупки составила "<< sum;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

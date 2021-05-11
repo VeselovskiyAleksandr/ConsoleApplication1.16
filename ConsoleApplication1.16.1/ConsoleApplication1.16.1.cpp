@@ -5,22 +5,19 @@
 #include <vector>
 #include <locale.h>
 using namespace std;
-vector<int>removal(vector<int>vect, int t) {
-vector<int>newvec(t);
+vector<int>removal(vector<int>vect, int newSize) {
+vector<int>newvec(newSize);
 int i, count = 0;
 for (i = 0; i < vect.size(); i++) {
 	if (vect[i] != vect[vect.size() - 1]) {
 		newvec[i - count] = vect[i];
 	}
-	else if (i == (vect.size() - 1)) {
-		newvec[i - count] = vect[vect.size() - 1];
-	}
 	else {
 		count++;
 	}
 
-} t -= count;
-for (i = 0; i < t; i++) {
+} newSize -= count;
+for (i = 0; i < newSize; i++) {
 	vect[i] = newvec[i];
 	cout << vect[i] << " ";
 }

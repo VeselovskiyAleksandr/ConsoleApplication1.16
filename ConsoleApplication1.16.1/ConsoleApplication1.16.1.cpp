@@ -5,7 +5,7 @@
 #include <vector>
 #include <locale.h>
 using namespace std;
-vector<int>removal(vector<int>vect, int newSize) {
+void removal(vector<int>vect, int newSize) {
 vector<int>newvec(newSize);
 int i, count = 0;
 for (i = 0; i < vect.size(); i++) {
@@ -21,7 +21,6 @@ for (i = 0; i < newSize; i++) {
 	vect[i] = newvec[i];
 	cout << vect[i] << " ";
 }
-return vect;
 }
 
 int main()
@@ -40,8 +39,8 @@ cout << "\n Укажите количество элементов в векто
 	cout << "\n ВВедите дополнительное значение ";
 	cin >> additionalNumber;
 	vec.push_back(additionalNumber);	
-	vec = removal(vec, vec.size());
-
+	//vec = removal(vec, vec.size());
+	removal(vec, vec.size());
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

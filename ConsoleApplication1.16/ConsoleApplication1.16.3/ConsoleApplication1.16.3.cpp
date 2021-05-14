@@ -28,7 +28,8 @@ int main()
 				  }
 				  for (j = 0; j<19 ; j++) {
 					  dataBase[j] = newvect[j+1];		
-				  } dataBase[19] = val;
+				  }
+				  dataBase[19] = val;
                 realsize = 20;
 			  }
 		  }

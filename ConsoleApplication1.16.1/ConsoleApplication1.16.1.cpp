@@ -39,7 +39,6 @@ cout << "\n Укажите количество элементов в векто
 	cout << "\n ВВедите дополнительное значение ";
 	cin >> additionalNumber;
 	vec.push_back(additionalNumber);	
-	//vec = removal(vec, vec.size());
 	removal(vec, vec.size());
 }
 
